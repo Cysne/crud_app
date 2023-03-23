@@ -1,15 +1,30 @@
 <div class="container">
   <div class="row justify-content-center">
-    
   </div>
   <br>
   <br>
   <hr>
   <%=render 'posts/longer_featured'%>
-  
-<% if @posts.present? %>
- <br>
-  <hr>
+  <div class="row mb-2">
+    <%= render 'posts/medium_card'%>
+    <%= render 'posts/medium_card2'%>
+  </div>
+  <div class="row g-5">
+    <div class="col-md-8">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        Builds
+      </h3>
+      <% if @posts.present? %>
+        <% @posts.each do |post| %>
+          <%= render 'posts/articles'%>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <!--inicio da tabela com os posts -->
+  <% if @posts.present? %>
+    <br>
+    <hr>
     <div class="row justify-content-center">
       <table class="table table-bordered">
         <thead>
@@ -20,7 +35,7 @@
           </tr>
         </thead>
         <tbody>
-        <% @posts.each do |post| %>
+          <% @posts.each do |post| %>
             <tr>
               <td><%= post.titulo %></td>
               <td><%= post.Descricao %></td>
@@ -28,11 +43,10 @@
               <td><%= link_to 'Delete', post_path(post.id),  data: { confirm: 'Confirmar?', turbo_method: :delete } %></td>
             </tr>
           <% end %>
-          </tbody>
+        </tbody>
       </table>
     </div>
   <% else %>
   <% end %>
 </div>
-
 </div>
