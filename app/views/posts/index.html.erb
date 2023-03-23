@@ -1,19 +1,12 @@
 <div class="container">
   <div class="row justify-content-center">
-    <h4 class="mt-4 display-4">Lista de Posts</h4>
+    
   </div>
   <br>
   <br>
   <hr>
-  <div class="p-3 mb-2 bg-light text-dark">
-    <span class="text-info font-weight-bold">Bem vindo! </span>
-    Crie a sua primeira Postagem
-    <p>
-    você está em ambiente de <strong><%= ambiente%></strong>
-    </p>
-   <p> <strong>Data de hoje: </strong><%= data_br(Date.today)%> </p>
-    <button type="button" class="btn btn-outline-primary"> <%= link_to 'Criar Postagem', new_post_path %></button>
-  </div>
+  <%=render 'posts/longer_featured'%>
+  
 <% if @posts.present? %>
  <br>
   <hr>
