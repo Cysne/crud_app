@@ -18,6 +18,9 @@ gem 'htmlbeautifier'
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 gem 'kaminari'
+gem "font-awesome-sass", "~> 6.3.0"
+
+
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 

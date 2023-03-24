@@ -11,4 +11,7 @@ module ApplicationHelper
             "Teste"
         end
     end
+    def date_time(date)
+        date.strftime("%d/%m/%Y %H:%M")
+    end
 end    
