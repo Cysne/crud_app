@@ -69,3 +69,10 @@
   .blog-footer p:last-child {
     margin-bottom: 0;
   }
+
+  .line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; // number of lines
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+  }

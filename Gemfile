@@ -11,7 +11,7 @@ gem "sprockets-rails"
 gem 'bootstrap', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
-
+gem 'rails-i18n', '~> 7.0.0'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 gem 'htmlbeautifier'
@@ -19,7 +19,7 @@ gem 'htmlbeautifier'
 gem "importmap-rails"
 gem 'kaminari'
 gem "font-awesome-sass", "~> 6.3.0"
-
+gem 'simple_form'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
