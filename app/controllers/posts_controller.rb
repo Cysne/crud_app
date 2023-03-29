@@ -2,7 +2,17 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[update destroy show edit]
 
   def index
-    @posts = Post.all.page(params[:page])
+    @cards = Post.order(created_at: :desc).first(3)
+    
+    current_page = (params[:page] || 1).to_i
+    cards_ids =  @cards.pluck(:id).join(',')
+
+    @posts =  Post.order(created_at: :desc)                  
+                  .where("id NOT IN (#{cards_ids})")
+                  .page(current_page)
+
+    
+
   end
 
   def show

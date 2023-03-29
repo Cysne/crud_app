@@ -2,12 +2,12 @@
   <% @posts.each do |post| %>
     <article class="blog-post">
       <h2 class="blog-post-title mb-1"><%= post.titulo%></h2>
-      <p class="blog-post-meta"><%= date_time(post.created_at)%> <a href="#"></a></p>
+      <p class="blog-post-meta"><%= date_time(post.created_at)%> </p>
       <p>
         <%= post.Descricao.to_plain_text.truncate(70) %>
       </p>
       <p>
-        <%= link_to "Leia mais", post, class:"btn btn-link" %>
+        <%= link_to "Leia mais", post, class:"link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
       </p>
     <% end %>
   <% end %>

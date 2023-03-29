@@ -2,15 +2,21 @@
   <div class="row justify-content-center">
   </div>
   <br>
+  <p>você está em ambiente de <strong><%= ambiente%></strong></p>
+  <p>  <strong>Data de hoje: </strong><%= data_br(Date.today)%> </p>
   <br>
   <hr>
-  <%=render 'posts/longer_featured'%>
+  <%=render 'longer_featured', post: @cards[0]%>
   <div class="row mb-2">
-    <%= render 'posts/medium_card'%>
-    <%= render 'posts/medium_card2'%>
+    <%= render 'posts/medium_card', post: @cards[1]%>
+    <%= render 'posts/medium_card', post: @cards[2]%>
   </div>
   <div class="row g-5">
+    <h1 class="display-4 fst-italic"><span class="text-info font-weight-bold">Bem vindo! </span>
+      Crie a sua primeira Postagem
+    </h1>
     <div class="col-md-8">
+      <%= link_to 'Criar Postagem', new_post_path, class:"btn btn-info" %>
       <h3 class="pb-4 mb-4 fst-italic border-bottom">
       </h3>
       <%= render 'posts/articles'%>
