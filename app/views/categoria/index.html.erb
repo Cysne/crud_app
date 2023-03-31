@@ -1,7 +1,7 @@
 <h1>Categoria</h1>
 <div>
-  <%= link_to "New categorium", new_categorium_path %>
-  <table class="table table-striped">
+  <%= link_to "New categorium", new_categorium_path, class:"btn btn-primary mt-2" %>
+  <table class="table table-striped mt-2">
     <thead>
       <tr>
         <th>Nome</th>
@@ -14,13 +14,13 @@
           <td scope="col"><%= categorium.name%></td>
           <td scope="row">
             <div class="d-grid gap-2 d-md-block">
-              <%= button_to edit_categorium_path(categorium), class:"btn btn-link" do%>
+              <%= link_to edit_categorium_path(categorium), class:"btn btn-link text-dark" do%>
                 <i class="fa-solid fa-pen-to-square"></i>
               <%end%>
-              <%= button_to  categorium, class:"btn btn-link" do %>
+              <%= link_to  categorium_path(categorium), class:"btn btn-link text-dark" do %>
                 <i class="fa-sharp fa-solid fa-eye"></i>
               <%end%>
-              <%= button_to  @categorium, method: :delete, class:"btn btn-link" do %>
+              <%= link_to  categorium, data: {confirm:'', turbo_method: :delete}, class:"btn btn-link text-danger" do %>
                 <i class="fa-solid fa-trash"></i>
               <%end%>
             </div>
