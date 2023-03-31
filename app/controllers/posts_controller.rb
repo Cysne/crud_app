@@ -2,13 +2,13 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[update destroy show edit]
 
   def index
-    @cards = Post.order(created_at: :desc).first(3)
+    @cards = Post.desc_order.first(3)
     
     current_page = (params[:page] || 1).to_i
     cards_ids =  @cards.pluck(:id).join(',')
 
-    @posts =  Post.order(created_at: :desc)                  
-                  .where("id NOT IN (#{cards_ids})")
+    @posts =  Post.without_card(cards_ids)
+                  .desc_order              
                   .page(current_page)
 
     
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to root_path, status: :see_other
+    redirect_to root_path, status: :see_other, notice: 'Post foi deletado com sucesso.'
   end
 
   def new
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
    if @post.save
-    redirect_to root_path
+    redirect_to root_path , notice: 'Post foi criado com sucesso.'
    else
     render :new
    end
